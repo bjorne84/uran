@@ -3,7 +3,11 @@ Nu kommer man åt alla dessa metoder genom gulp
 */
 const { src, dest, watch, series, parallel} = require("gulp");
 const concat = require("gulp-concat");
+const GulpClient = require("gulp");
 const uglify = require("gulp-uglify-es").default;
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+const cleanCSS = require('gulp-clean-css');
 
 
 /* ---- Sökvägar ----
@@ -17,7 +21,7 @@ src = src katalogen
 */
 const files = {
     htmlPath: "src/**/*.html",
-    cssPatch: "src/**/*.css",
+    cssPath: "src/**/*.css",
     jsPath: "src/**/*.js"
 }
 
@@ -31,9 +35,6 @@ function copyHTML() {
     );
 }
 
-
-
-
 /* Sammanslå och minifiera JS-filer, i concat-stadiet så ligger den bara
 i minnet, den skrivs in dest-stadiet, alltså main.js i pup skrivs först då*/
 function jsTask() {
@@ -45,7 +46,26 @@ function jsTask() {
 }
 
 
-/* kollar om den hittar ändringar och då sparkar den igång copyHTML*/
+/* Task/function för att hantera css-filer
+1. Slår samman css-filerna från src till en css-fil - .pipe(concat())
+2. */
+function cssTask() {
+    return src(files.cssPath)
+    .pipe(sourcemaps.init())
+    .pipe(concat('style.css'))
+    .pipe(autoprefixer({cascade: false}))
+    .pipe(cleanCSS({debug: true}, (details) => {
+        console.log(`${details.name}: ${details.stats.originalSize}`);
+        console.log(`${details.name}: ${details.stats.minifiedSize}`);
+      }))
+    .pipe(sourcemaps.write('/.'))
+    .pipe(dest('pup/css')
+    );
+
+}
+
+
+/* kollar om den hittar ändringar och då sparkar den igång tasks*/
 function watchTask() {
     watch([files.htmlPath, files.jsPath], 
         parallel(copyHTML, jsTask));
@@ -60,3 +80,4 @@ exports.default = series(
     parallel(copyHTML, jsTask),
     watchTask
 );
+
