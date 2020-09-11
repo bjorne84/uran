@@ -6,4 +6,6 @@ body {
 
 a {
     transition: all 320ms ease-in;
+    color: rgb(72, 11, 240);
+    font-size: 2em;
 }

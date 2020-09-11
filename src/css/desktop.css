@@ -1,4 +1,36 @@
-body {
+
+
+main {
     background-color: rgb(170, 12, 44);
+    margin: 0 auto;
+    max-width: 1220px;
+    width: 100%;
 }
+
+h1 {
+    color: rgb(10, 248, 208);
+    font-size: 5em;
+}
+
+
+.images {
+    width: 100%;
+
+}
+
+
+@media screen and (min-width: 990px) {
+    .imgWrapper {
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: wrap; 
+    width: 100%;  
+    }
+
+    .imgArticle {
+        width: 50%;
+    }
+    
+}
+
 
