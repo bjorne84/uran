@@ -8,21 +8,21 @@ Dels för att skilja på hur de filer som skall publiceras ser ut och är samman
 ## Paket
 **Följande paket har jag valt att använda:**
 
-* **Gulp-Concat** 
+* **Gulp-Concat**  
 Slår samman filer. Perfekt att exempelvis slå samman alla JavaScript-filer man har i utvecklingsläget till en JavaScript-fil som används för den puplika versionen. 
-* **Gulp uglify**
+* **Gulp uglify**  
 Minifierar JavaScript filer, tar bort kommentarer och alla radbrytningar osv och gör filen så liten som möjligt. 
-* **Autoprefixers**
+* **Autoprefixers**  
 Adderar eller tar bort vendor prefixes som -webkit eller -moz. Det gör den genom att kontrollera support för olika css-funktioner för de olika webbläsarna på caniuse.com. Caniuse.com har den mest uppdaterade datan över detta. 
-* **Gulp sourcemap**
+* **Gulp sourcemap**  
 Gör det möjligt att för de sammanslagna filerna ändå se fårn vilken urspiurngsfil en viss del av koden härstammar från.
-* **Gulp cleanCSS**
+* **Gulp cleanCSS**  
 Minifierar CSS-filer
-* **BrowserSync**
+* **BrowserSync**  
 Synkroniserar ändringar man gör så att webbläsaren ser dem utan att man behöver uppdatera i exempelvis kommandocentralen och uppdatera webbläsaren.
-* **Gulp imagemin**
+* **Gulp imagemin**  
 Minifierar gif, jpg, png och svg bilder genom komprimering.
-* **Gulp htmlmin**
+* **Gulp htmlmin**  
 Minifierar html-filer. Jag har ställt så den plockar bort kommentarer, men låter resten vara.
 
 ## Instruktioner
@@ -32,13 +32,13 @@ Sedan kör man i kommandocentralen kommandot nom install i den filkatalog som ma
 När det är gjort skriver man bara npm gulp i kommandocentralen så kickar allt igång.
 	
 ## Tasks: 
-**htmlTask**
+* **htmlTask**  
 Tar bort kommentarer(minifierar) och kopierar filerna till den publika katalogen.
-**jsTask**
+* **jsTask**  
 Slår samman och minifierar alla JavaScript-filer samt kör sourcemap och flyttar slutligen filerna
 till den publika katalogen
-**cssTask**
+* **cssTask**  
 Slår samman och minifierar css-filerna. Förenklar css-skrivandet genom autoprefixer. Filerna körs
 via sourcemap så de går att se sedan vart koden härstämmar ifrån. Flyttas sedan till den publika mappen.
-**imgTask**
+* **imgTask**  
 Komprimerar bilder och flyttar till den publika mappen.
