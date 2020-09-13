@@ -1,4 +1,4 @@
-# Moment 2 Gulp ooch node.js
+# Moment 2 Gulp och node.js
 
 ## Automatiseringsprocess:
 Syftet är att förenkla processerna som man gör för alla webbprojekt. Det är exempelvis att minifiera filer, komprimera filer, slå samman filer. 
@@ -26,8 +26,8 @@ Minifierar gif, jpg, png och svg bilder genom komprimering.
 Minifierar html-filer. Jag har ställt så den plockar bort kommentarer, men låter resten vara.
 
 ## Instruktioner
-Man startar systemet genom att först clone repon där gulpen finns sparad.  
-I bash skriver man $ git clone git@github.com:bjorne84/gulp.git
+Man startar systemet genom att först clone repon där gulpen finns sparad.    
+I bash skriver man $ git clone git@github.com:bjorne84/gulp.git  
 Sedan kör man i kommandocentralen kommandot nom install i den filkatalog som man valt  
 När det är gjort skriver man bara npm gulp i kommandocentralen så kickar allt igång.
 	
