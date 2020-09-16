@@ -11,7 +11,8 @@ const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
 const htmlmin = require('gulp-htmlmin');
-
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 
 /* ---- Sökvägar ----
 
@@ -26,7 +27,8 @@ const files = {
     htmlPath: "src/**/*.html",
     cssPath: "src/**/*.css",
     jsPath: "src/**/*.js",
-    imgPath: "src/images/*"
+    imgPath: "src/images/*",
+    scssPath: "src/**/*.scss"
 }
 
 /* kopiera HTML-filer och plockar bort kommentarer
@@ -51,6 +53,23 @@ function jsTask() {
     .pipe(sourcemaps.write('/.'))
     .pipe(dest('pup/js')
     );
+}
+
+
+// Compile scss into css
+function sassTask () {
+    // Hämta scss fil
+    return src(files.scssPath)
+    // starta sourcemap
+    .pipe(sourcemaps.init())
+    // Köra compiler
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(autoprefixer({cascade: false}))
+    .pipe(sourcemaps.write('/.'))
+    // Vart skall filerna flyttas
+    .pipe(dest('pup'))
+    // stream
+   .pipe(browserSync.stream());
 }
 
 
@@ -100,7 +119,8 @@ function watchTask() {
    
     watch([files.htmlPath, files.jsPath, files.imgPath], 
         parallel(htmlTask, jsTask, imgTask)).on('change', browserSync.reload);
-    watch(files.cssPath, cssTask).on('change', browserSync.reload);
+    watch(files.cssPath, cssTask).on('change', browserSync.reload);    
+    watch(files.scssPath, sassTask); 
 
     
 }
@@ -111,7 +131,8 @@ eller kommandopromten*/
 
 //default task
 exports.default = series(
-    parallel(htmlTask, jsTask, cssTask, imgTask),
+    parallel(htmlTask, jsTask, imgTask, sassTask),
+    cssTask,
     watchTask
 );
 

@@ -1,2 +1,2 @@
 // av björn
-console.log("hello sweden");
+console.log("hello hej hej sweden");

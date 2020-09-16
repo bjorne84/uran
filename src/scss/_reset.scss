@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Box sizing rules */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Remove default padding */
+
+/*
+ul[class], ol[class] {
+    padding: 0;
+}*/
+
+/* Remove default margin, kanske lägga till a också? */
+
+body, h1, h2, h3, h4, p, a, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+}
+
+/* Set core body defaults */
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    /*text-rendering: optimizeSpeed; denna egenskap validerar ej*/
+    line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+
+/*
+ul[class], ol[class] {
+    list-style: none;
+}*/
+
+/* A elements that don't have a class get default styles 
+Validerar ej: Egenskap text-decoration-skip-ink finns inte : auto */
+
+/*a:not([class]) {
+  text-decoration-skip-ink: auto;
+}*/
+
+/* Make images easier to work with */
+
+img, picture, source {
+    max-width: 100%;
+    display: block;
+    border-radius: 2px;
+}
+
+/* Natural flow and rhythm in articles by default */
+
+/*article>*+* {
+    margin-top: 1em;
+}*/
+
+/* Inherit fonts for inputs and buttons */
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Plockar bort padding på vänster sida för listor*/
+
+ul {
+    padding-left: 0;
+}
+
+/* ------------------END CLEARING OF SETTINGS ---------------------------------------*/

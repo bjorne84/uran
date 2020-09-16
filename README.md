@@ -24,12 +24,22 @@ Synkroniserar ändringar man gör så att webbläsaren ser dem utan att man beh�
 Minifierar gif, jpg, png och svg bilder genom komprimering.
 * **Gulp htmlmin**  
 Minifierar html-filer. Jag har ställt så den plockar bort kommentarer, men låter resten vara.
+* **Gulp Sass**  
+Kompilerar sasskod till css, samt minifierar kod.
+* **npm Sass**  
+Biblotek som behövs för att automatiskt kunna kompila kod sasskod till css.
+
 
 ## Instruktioner
 Man startar systemet genom att först clone repon där gulpen finns sparad.    
 I bash skriver man $ git clone git@github.com:bjorne84/gulp.git  
 Sedan kör man i kommandocentralen kommandot nom install i den filkatalog som man valt  
-När det är gjort skriver man bara npm gulp i kommandocentralen så kickar allt igång.
+När det är gjort skriver man bara npm gulp i kommandocentralen så kickar allt igång.  
+
+* Välj mellan SASS och CSS  
+Denna gulp-mall innehåller både funktionalitet för sass-kod och css.  
+Det enda man behöver ändra på är sökfilvägen i html-headern.   
+Antingen href="scss/styles.css" eller href="css/style.css"
 	
 ## Tasks: 
 * **htmlTask**  
@@ -42,3 +52,7 @@ Slår samman och minifierar css-filerna. Förenklar css-skrivandet genom autopre
 via sourcemap så de går att se sedan vart koden härstämmar ifrån. Flyttas sedan till den publika mappen.
 * **imgTask**  
 Komprimerar bilder och flyttar till den publika mappen.
+* **sassTask**  
+Kompilerar sass-kod till css, samt minifierar, kör sourcemap, autoprefixer och flyttar sedan till den puplika mappen.  
+BrowserSync kör streamer-funktion vilket innebär att css-koden uppdateras när man sitter och utvecklar utan att hela sidan  
+behöver laddas om.
