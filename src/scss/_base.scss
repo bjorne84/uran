@@ -1,8 +1,80 @@
 
-p {
-    color: rgb(41, 230, 41);
+// Skapar en array av färger som går att komma åt med map-get(), lite olika som man kan välja på
+$colors: (
+    base: #560932,
+    middle: #B20C64,
+    accent: #F36BB3,
+    background2: #F9F8F8
+);
+
+
+$greenColors: (
+    base: #080A07,
+    middle: #79C440,
+    accent: #25F24B,
+    background2: #F9F8F8
+);
+
+$yellowColors: (
+    base: #E2C800,
+    base-dark: darken(#E2C800, 5%),
+    base-light: lighten(#E2C800, 20%),
+    middle: #c28606,
+    accent: #FEFE18,
+    background2: #F9F8F8,
+    grey: #292927,
+    grey-light: lighten(#292927, 40%)
+);
+
+
+/* Skapar en funktion för snygga till map-get-funktionen*/
+@function color($colorName) {
+    @return map-get($yellowColors, $colorName)
+};
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+$mainFont:'Poppins', sans-serif;
+$headings: Helvetica, sans-serif;
+
+$headColor: #292927;
+$fontColor: #5D5051;
+
+
+
+// Ändra färg på text beroende på
+@function shift-textColor($yellowColors, $colorName) {
+
+    $color: map-get($yellowColors, $colorName);
+    @if(lightness($color) > 60) {
+        @return $fontColor;
+    } @else {
+        @return #fff;
+    }
 }
 
-h1 {
-    color: rgb(51, 3, 51);
+//mixin för att sätta både
+@mixin shiftColor($yellowColors, $colorName) {
+    background-color: map-get($yellowColors, $colorName);
+    color: shift-textColor($yellowColors, $colorName);
 }
+/* mixin för att förenkla mediaqueries*/
+$padda: 500px;
+$desktop: 960px;
+
+
+@mixin padda {
+    @media (min-width: #{$padda}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+
+

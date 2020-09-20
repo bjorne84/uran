@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="scss/styles.css">
     <title>Document</title>
 </head>
+
 <body>
-    <header></header>
-    <main>
-        <h1>Test</h1>
-        <a href="">länk</a>
-        <div class="imgWrapper">
-            <article class="imgArticle">
-                <img class="images" src="images/snow_car.jpg" alt="Bild på snöbil">
-            </article>
-            <article class="imgArticle">
-                <img class="images" src="images/snow_deer.jpg" alt="Bild på rådjur">
-            </article>
-            <article class="imgArticle">
-                <img class="images" src="images/snow_house.jpg" alt="Bild på snö över hus">
-            </article>
-            <article class="imgArticle">
-                <img class="images" src="images/snow_trees.jpg" alt="Bild på snö över träd">
-            </article>
+    <header>
+        <div class="headContainer">
+            <div class="logoHolder">
+                <a href="index.php"><img id="logosize" src="images/radioactive.png" alt="logotyp"></a>
+            </div>
+            <div class="navHold">
+                <!--Hamburger menu-->
+                <div class="nav-toggle">
+                    <div class="nav-toggle-bar"></div>
+                </div>
+                <!--INCLUDE NAV HERE-->
+                <nav class="nav">
+                    <ul id="menu">
+                        <li class="li"><a class="menuText" href="index.html">Start</a></li>
+                        <li class="li"><a class="menuText" href="#">Kärnkraftverk</a></li>
+                        <li class="li"><a class="menuText" href="#">Uran</a></li>
+                        <li class="li"><a class="menuText" href="#">Nuclear dance</a></li>
+                        <li class="li"><a class="menuText" href="#">Atomubåtar</a></li>
+                        <li class="li"><a class="menuText" href="#">Atomraketer</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+    </header>
+    <main>
+        <div id="text">
+            <h1>Test</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio veniam excepturi eum fugit autem ducimus
+                inventore quas, ab, magni iure tempore facere neque distinctio maiores nulla quo fugiat a illum.</p>
+            <div id="btndiv">
+                <button class="btn-one">Radioaktiv hjälp</button>
+                <button class="btn-two">Ringhals</button>
+                <button class="btn-three">Forsmark</button>
+            </div>
+            <div class="imgWrapper">
+                <article class="imgArticle">
+                    <img class="images" src="images/huntingforra.jpg" alt="Bild på snöbil">
+                </article>
+                <article class="imgArticle">
+                    <img class="images" src="images/potentialapp.jpg" alt="Bild på rådjur">
+                </article>
+                <article class="imgArticle">
+                    <img class="images" src="images/Uran.jpg" alt="Bild på snö över hus">
+                </article>
+                <article class="imgArticle">
+                    <img class="images" src="images/UranYellow.jpg" alt="Bild på snö över träd">
+                </article>
+            </div>
     </main>
-    <footer></footer>
+    <footer>
+        <div id="path">
+            <p id="fot"><b>&#169; 2020 - Björn Edin</b><br>
+                Uppgift 3 (Sass)<br>
+                Kurs: Webbutveckling 3<br> 
+                Mittuniversitet</p>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
