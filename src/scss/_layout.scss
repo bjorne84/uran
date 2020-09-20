@@ -120,11 +120,7 @@ footer {
 }
 
 @include desktop {
-    body {
-        #back {
-            clip-path: none;
-        }
-    }
+   
 
     header {
         min-height: 7em;
